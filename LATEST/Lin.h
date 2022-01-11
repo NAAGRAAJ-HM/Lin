@@ -4,7 +4,7 @@
 
 class class_Lin{
    public:
-      void InitFunction(void);
+      FUNC(void, LIN_CODE) InitFunction(void);
 };
 
 extern class_Lin Lin;

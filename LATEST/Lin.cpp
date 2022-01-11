@@ -2,6 +2,6 @@
 
 class_Lin Lin;
 
-void class_Lin::InitFunction(void){
+FUNC(void, LIN_CODE) class_Lin::InitFunction(void){
 }
 
