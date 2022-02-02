@@ -26,7 +26,6 @@ class class_Lin{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, LIN_CODE) InitFunction      (void);
       FUNC(void, LIN_CODE) CheckWakeup       (void);
       FUNC(void, LIN_CODE) GetVersionInfo    (void);
       FUNC(void, LIN_CODE) SendFrame         (void);

@@ -1,14 +1,15 @@
+#pragma once
 /*****************************************************/
-/* File   : Lin.cpp                                  */
+/* File   : Lin_EcuM.h                               */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Lin.h"
+#include "Compiler_Cfg_Lin.h"
 
-#include "Lin_EcuM.h"
+#include "EcuM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,6 +22,13 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
+class class_Lin_EcuM : public class_EcuM_Client{
+   public:
+/*****************************************************/
+/* FUNCTIONS                                         */
+/*****************************************************/
+      FUNC(void, LIN_CODE) InitFunction(void);
+};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -33,39 +41,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-class_Lin Lin;
-class_Lin_EcuM Lin_EcuM;
-class_Lin_EcuM *Lin_EcuM_ptr = &Lin_EcuM;
-
-/*****************************************************/
-/* FUNCTIONS                                         */
-/*****************************************************/
-FUNC(void, LIN_CODE) class_Lin_EcuM::InitFunction(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::CheckWakeup(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::GetVersionInfo(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::SendFrame(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::GoToSleep(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::GoToSleepInternal(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::Wakeup(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::WakeupInternal(void){
-}
-
-FUNC(void, LIN_CODE) class_Lin::GetStatus(void){
-}
+extern class_Lin_EcuM *Lin_EcuM_ptr;
 
 /*****************************************************/
 /* EOF                                               */
