@@ -33,9 +33,9 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-class_Lin Lin;
 class_Lin_EcuM Lin_EcuM;
-class_Lin_EcuM *Lin_EcuM_ptr = &Lin_EcuM;
+class_EcuM_Client *EcuM_Client_ptr_Lin = &Lin_EcuM;
+class_Lin Lin;
 
 /*****************************************************/
 /* FUNCTIONS                                         */

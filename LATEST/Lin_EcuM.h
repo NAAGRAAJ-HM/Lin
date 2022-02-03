@@ -41,7 +41,7 @@ class class_Lin_EcuM : public class_EcuM_Client{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern class_Lin_EcuM *Lin_EcuM_ptr;
+extern class_EcuM_Client *EcuM_Client_ptr_Lin;
 
 /*****************************************************/
 /* EOF                                               */
