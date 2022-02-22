@@ -1,15 +1,14 @@
 #pragma once
 /*****************************************************/
-/* File   : Lin_EcuM.h                               */
+/* File   : Lin_Unused.h                             */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
+#include "Std_Types.h"
 #include "Compiler_Cfg_Lin.h"
-
-#include "EcuM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -22,13 +21,19 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class interface_Lin_EcuM : public interface_EcuM_Client{
+class class_Lin_Unused{
    public:
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, LIN_CODE) InitFunction   (void);
-      FUNC(void, LIN_CODE) DeInitFunction (void);
+      FUNC(void, LIN_CODE) CheckWakeup       (void);
+      FUNC(void, LIN_CODE) GetVersionInfo    (void);
+      FUNC(void, LIN_CODE) SendFrame         (void);
+      FUNC(void, LIN_CODE) GoToSleep         (void);
+      FUNC(void, LIN_CODE) GoToSleepInternal (void);
+      FUNC(void, LIN_CODE) Wakeup            (void);
+      FUNC(void, LIN_CODE) WakeupInternal    (void);
+      FUNC(void, LIN_CODE) GetStatus         (void);
 };
 
 /*****************************************************/
@@ -42,7 +47,7 @@ class interface_Lin_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern interface_Lin_EcuM *EcuM_Client_ptr_Lin;
+//extern class_Lin Lin;
 
 /*****************************************************/
 /* EOF                                               */

@@ -1,14 +1,15 @@
 #pragma once
 /*****************************************************/
-/* File   : Lin.h                                    */
+/* File   : Lin_SchM.h                               */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Std_Types.h"
 #include "Compiler_Cfg_Lin.h"
+
+#include "SchM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,19 +22,12 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class class_Lin{
+class interface_Lin_SchM : public interface_SchM_Client{
    public:
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, LIN_CODE) CheckWakeup       (void);
-      FUNC(void, LIN_CODE) GetVersionInfo    (void);
-      FUNC(void, LIN_CODE) SendFrame         (void);
-      FUNC(void, LIN_CODE) GoToSleep         (void);
-      FUNC(void, LIN_CODE) GoToSleepInternal (void);
-      FUNC(void, LIN_CODE) Wakeup            (void);
-      FUNC(void, LIN_CODE) WakeupInternal    (void);
-      FUNC(void, LIN_CODE) GetStatus         (void);
+      FUNC(void, LIN_CODE) MainFunction(void);
 };
 
 /*****************************************************/
@@ -47,7 +41,7 @@ class class_Lin{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern class_Lin Lin;
+extern interface_Lin_SchM *SchM_Client_ptr_Lin;
 
 /*****************************************************/
 /* EOF                                               */

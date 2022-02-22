@@ -6,9 +6,10 @@
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Lin.h"
-
+#include "module.h"
 #include "Lin_EcuM.h"
+#include "Lin_SchM.h"
+#include "Lin_Unused.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,6 +22,16 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
+class module_Lin:
+      public abstract_module
+   ,  public interface_Lin_EcuM
+   ,  public interface_Lin_SchM
+{
+   public:
+      FUNC(void, LIN_CODE) InitFunction   (void);
+      FUNC(void, LIN_CODE) DeInitFunction (void);
+      FUNC(void, LIN_CODE) MainFunction   (void);
+};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -33,38 +44,45 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-class_Lin_EcuM Lin_EcuM;
-class_EcuM_Client *EcuM_Client_ptr_Lin = &Lin_EcuM;
-class_Lin Lin;
+module_Lin Lin;
+
+interface_Lin_EcuM *EcuM_Client_ptr_Lin = &Lin;
+interface_Lin_SchM *SchM_Client_ptr_Lin = &Lin;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-FUNC(void, LIN_CODE) class_Lin_EcuM::InitFunction(void){
+FUNC(void, LIN_CODE) module_Lin::InitFunction(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::CheckWakeup(void){
+FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::GetVersionInfo(void){
+FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::SendFrame(void){
+FUNC(void, LIN_CODE) class_Lin_Unused::CheckWakeup(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::GoToSleep(void){
+FUNC(void, LIN_CODE) class_Lin_Unused::GetVersionInfo(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::GoToSleepInternal(void){
+FUNC(void, LIN_CODE) class_Lin_Unused::SendFrame(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::Wakeup(void){
+FUNC(void, LIN_CODE) class_Lin_Unused::GoToSleep(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::WakeupInternal(void){
+FUNC(void, LIN_CODE) class_Lin_Unused::GoToSleepInternal(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin::GetStatus(void){
+FUNC(void, LIN_CODE) class_Lin_Unused::Wakeup(void){
+}
+
+FUNC(void, LIN_CODE) class_Lin_Unused::WakeupInternal(void){
+}
+
+FUNC(void, LIN_CODE) class_Lin_Unused::GetStatus(void){
 }
 
 /*****************************************************/
