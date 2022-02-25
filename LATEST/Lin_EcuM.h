@@ -27,8 +27,8 @@ class interface_Lin_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, LIN_CODE) InitFunction   (void);
-      FUNC(void, LIN_CODE) DeInitFunction (void);
+      virtual FUNC(void, LIN_CODE) InitFunction   (void) = 0;
+      virtual FUNC(void, LIN_CODE) DeInitFunction (void) = 0;
 };
 
 /*****************************************************/
