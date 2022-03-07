@@ -24,8 +24,6 @@
 /*****************************************************/
 class module_Lin:
       public abstract_module
-   ,  public interface_Lin_EcuM
-   ,  public interface_Lin_SchM
 {
    public:
       FUNC(void, LIN_CODE) InitFunction   (void);
@@ -44,10 +42,9 @@ class module_Lin:
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-module_Lin Lin;
-
-interface_Lin_EcuM *EcuM_Client_ptr_Lin = &Lin;
-interface_Lin_SchM *SchM_Client_ptr_Lin = &Lin;
+module_Lin     Lin;
+infEcuMClient* gptrinfEcuMClient_Lin = &Lin;
+infSchMClient* gptrinfSchMClient_Lin = &Lin;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
