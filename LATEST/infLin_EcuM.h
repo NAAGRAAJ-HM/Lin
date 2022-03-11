@@ -1,6 +1,6 @@
 #pragma once
 /*****************************************************/
-/* File   : Lin_SchM.h                               */
+/* File   : infLin_EcuM.h                            */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
@@ -32,7 +32,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern infSchMClient* gptrinfSchMClient_Lin;
+extern infEcuMClient* gptrinfEcuMClient_Lin;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
