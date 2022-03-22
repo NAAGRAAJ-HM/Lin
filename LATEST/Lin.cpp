@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "infLin_Version.h"
+#include "Lin_Cfg.h"
 #include "infLin_EcuM.h"
 #include "infLin_Dcm.h"
 #include "infLin_SchM.h"
@@ -15,10 +15,19 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define LIN_AR_RELEASE_MAJOR_VERSION                                           4
+#define LIN_AR_RELEASE_MINOR_VERSION                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#if(LIN_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
+   #error "Incompatible LIN_AR_RELEASE_MAJOR_VERSION!"
+#endif
+
+#if(LIN_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
+   #error "Incompatible LIN_AR_RELEASE_MINOR_VERSION!"
+#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -61,6 +70,11 @@ FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
 }
 
 FUNC(void, LIN_CODE) module_Lin::GetVersionInfo(void){
+#if(STD_ON == Lin_DevErrorDetect)
+//TBD: API parameter check
+   Det_ReportError(
+   );
+#endif
 }
 
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
