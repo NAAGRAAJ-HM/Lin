@@ -40,6 +40,16 @@ class module_Lin:
       FUNC(void, LIN_CODE) DeInitFunction (void);
       FUNC(void, LIN_CODE) GetVersionInfo (void);
       FUNC(void, LIN_CODE) MainFunction   (void);
+
+   private:
+      CONST(Std_TypeVersionInfo, LIN_CONST) VersionInfo = {
+            0x0000
+         ,  0xFFFF
+         ,  0x01
+         ,  '0'
+         ,  '1'
+         ,  '0'
+      };
 };
 
 /******************************************************************************/
