@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "Lin_Cfg.h"
+#include "CfgLin.h"
 #include "infLin_EcuM.h"
 #include "infLin_Dcm.h"
 #include "infLin_SchM.h"
