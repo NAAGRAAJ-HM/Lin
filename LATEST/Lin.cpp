@@ -6,11 +6,11 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.h"
-#include "CfgLin.h"
-#include "infLin_EcuM.h"
-#include "infLin_Dcm.h"
-#include "infLin_SchM.h"
+#include "module.hpp"
+#include "CfgLin.hpp"
+#include "infLin_EcuM.hpp"
+#include "infLin_Dcm.hpp"
+#include "infLin_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -90,7 +90,7 @@ FUNC(void, LIN_CODE) module_Lin::GetVersionInfo(void){
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 }
 
-#include "Lin_Unused.h"
+#include "Lin_Unused.hpp"
 
 FUNC(void, LIN_CODE) class_Lin_Unused::CheckWakeup(void){
 }
