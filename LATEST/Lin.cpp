@@ -90,7 +90,16 @@ FUNC(void, LIN_CODE) module_Lin::GetVersionInfo(void){
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 }
 
-#include "Lin_Unused.hpp"
+class class_Lin_Unused{
+   public:
+      FUNC(void, LIN_CODE) CheckWakeup       (void);
+      FUNC(void, LIN_CODE) SendFrame         (void);
+      FUNC(void, LIN_CODE) GoToSleep         (void);
+      FUNC(void, LIN_CODE) GoToSleepInternal (void);
+      FUNC(void, LIN_CODE) Wakeup            (void);
+      FUNC(void, LIN_CODE) WakeupInternal    (void);
+      FUNC(void, LIN_CODE) GetStatus         (void);
+};
 
 FUNC(void, LIN_CODE) class_Lin_Unused::CheckWakeup(void){
 }
