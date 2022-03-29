@@ -7,7 +7,6 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.hpp"
-#include "CfgLin.hpp"
 #include "infLin_EcuM.hpp"
 #include "infLin_Dcm.hpp"
 #include "infLin_SchM.hpp"
@@ -36,37 +35,40 @@ class module_Lin:
       public abstract_module
 {
    public:
+      module_Lin(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
+      }
       FUNC(void, LIN_CODE) InitFunction   (void);
       FUNC(void, LIN_CODE) DeInitFunction (void);
-      FUNC(void, LIN_CODE) GetVersionInfo (void);
       FUNC(void, LIN_CODE) MainFunction   (void);
-
-   private:
-      CONST(Std_TypeVersionInfo, LIN_CONST) VersionInfo = {
-            0x0000
-         ,  0xFFFF
-         ,  0x01
-         ,  '0'
-         ,  '1'
-         ,  '0'
-      };
 };
+
+extern VAR(module_Lin, LIN_VAR) Lin;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
+CONSTP2VAR(infEcuMClient, LIN_VAR, LIN_CONST) gptrinfEcuMClient_Lin = &Lin;
+CONSTP2VAR(infDcmClient,  LIN_VAR, LIN_CONST) gptrinfDcmClient_Lin  = &Lin;
+CONSTP2VAR(infSchMClient, LIN_VAR, LIN_CONST) gptrinfSchMClient_Lin = &Lin;
 
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
+#include "CfgLin.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_Lin, LIN_VAR) Lin;
-CONSTP2VAR(infEcuMClient, LIN_VAR, LIN_CONST) gptrinfEcuMClient_Lin = &Lin;
-CONSTP2VAR(infDcmClient,  LIN_VAR, LIN_CONST) gptrinfDcmClient_Lin  = &Lin;
-CONSTP2VAR(infSchMClient, LIN_VAR, LIN_CONST) gptrinfSchMClient_Lin = &Lin;
+VAR(module_Lin, LIN_VAR) Lin(
+   {
+         0x0000
+      ,  0xFFFF
+      ,  0x01
+      ,  '0'
+      ,  '1'
+      ,  '0'
+   }
+);
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -77,14 +79,6 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(void){
 
 FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
    Lin.IsInitDone = E_NOT_OK;
-}
-
-FUNC(void, LIN_CODE) module_Lin::GetVersionInfo(void){
-#if(STD_ON == Lin_DevErrorDetect)
-//TBD: API parameter check
-   Det_ReportError(
-   );
-#endif
 }
 
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
