@@ -6,7 +6,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.hpp"
+#include "Module.hpp"
 #include "infLin_EcuM.hpp"
 #include "infLin_Dcm.hpp"
 #include "infLin_SchM.hpp"
@@ -37,6 +37,9 @@ class module_Lin:
    public:
       module_Lin(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
+      FUNC(void, _CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      );
       FUNC(void, LIN_CODE) InitFunction   (void);
       FUNC(void, LIN_CODE) DeInitFunction (void);
       FUNC(void, LIN_CODE) MainFunction   (void);
@@ -73,7 +76,19 @@ VAR(module_Lin, LIN_VAR) Lin(
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, LIN_CODE) module_Lin::InitFunction(void){
+FUNC(void, LIN_CODE) module_Lin::InitFunction(
+   CONSTP2CONST(CfgLin_Type, CFGLIN_CONFIG_DATA, CFGLIN_APPL_CONST) lptrCfgLin
+){
+   if(NULL_PTR == lptrCfgLin){
+#if(STD_ON == Lin_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+// check lptrCfgLin for memory faults
+// use PBcfg_Lin as back-up configuration
+   }
    Lin.IsInitDone = E_OK;
 }
 
