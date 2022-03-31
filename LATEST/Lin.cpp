@@ -37,10 +37,9 @@ class module_Lin:
    public:
       module_Lin(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
-      FUNC(void, _CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      FUNC(void, LIN_CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
       );
-      FUNC(void, LIN_CODE) InitFunction   (void);
       FUNC(void, LIN_CODE) DeInitFunction (void);
       FUNC(void, LIN_CODE) MainFunction   (void);
 };
@@ -77,23 +76,39 @@ VAR(module_Lin, LIN_VAR) Lin(
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, LIN_CODE) module_Lin::InitFunction(
-   CONSTP2CONST(CfgLin_Type, CFGLIN_CONFIG_DATA, CFGLIN_APPL_CONST) lptrCfgLin
+   CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
 ){
-   if(NULL_PTR == lptrCfgLin){
+   if(E_OK == IsInitDone){
 #if(STD_ON == Lin_DevErrorDetect)
       Det_ReportError(
       );
 #endif
    }
    else{
-// check lptrCfgLin for memory faults
+      if(NULL_PTR == lptrCfgModule){
+#if(STD_ON == Lin_DevErrorDetect)
+         Det_ReportError(
+         );
+#endif
+      }
+      else{
+// check lptrCfgModule for memory faults
 // use PBcfg_Lin as back-up configuration
+      }
+      IsInitDone = E_OK;
    }
-   Lin.IsInitDone = E_OK;
 }
 
 FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
-   Lin.IsInitDone = E_NOT_OK;
+   if(E_OK != IsInitDone){
+#if(STD_ON == Lin_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+      IsInitDone = E_NOT_OK;
+   }
 }
 
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
