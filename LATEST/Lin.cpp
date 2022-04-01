@@ -78,6 +78,7 @@ VAR(module_Lin, LIN_VAR) Lin(
 FUNC(void, LIN_CODE) module_Lin::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
 ){
+#if(STD_ON == Lin_InitCheck)
    if(E_OK == IsInitDone){
 #if(STD_ON == Lin_DevErrorDetect)
       Det_ReportError(
@@ -85,6 +86,7 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
 #endif
    }
    else{
+#endif
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == Lin_DevErrorDetect)
          Det_ReportError(
@@ -96,10 +98,13 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
 // use PBcfg_Lin as back-up configuration
       }
       IsInitDone = E_OK;
+#if(STD_ON == Lin_InitCheck)
    }
+#endif
 }
 
 FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
+#if(STD_ON == Lin_InitCheck)
    if(E_OK != IsInitDone){
 #if(STD_ON == Lin_DevErrorDetect)
       Det_ReportError(
@@ -107,11 +112,26 @@ FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
 #endif
    }
    else{
+#endif
       IsInitDone = E_NOT_OK;
+#if(STD_ON == Lin_InitCheck)
    }
+#endif
 }
 
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
+#if(STD_ON == Lin_InitCheck)
+   if(E_OK != IsInitDone){
+#if(STD_ON == Lin_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+#endif
+#if(STD_ON == Lin_InitCheck)
+   }
+#endif
 }
 
 class class_Lin_Unused{
