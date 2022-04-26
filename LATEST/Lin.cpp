@@ -31,8 +31,20 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+class class_Lin_Functionality{
+   public:
+      FUNC(void, LIN_CODE) CheckWakeup       (void);
+      FUNC(void, LIN_CODE) SendFrame         (void);
+      FUNC(void, LIN_CODE) GoToSleep         (void);
+      FUNC(void, LIN_CODE) GoToSleepInternal (void);
+      FUNC(void, LIN_CODE) Wakeup            (void);
+      FUNC(void, LIN_CODE) WakeupInternal    (void);
+      FUNC(void, LIN_CODE) GetStatus         (void);
+};
+
 class module_Lin:
       public abstract_module
+   ,  public class_Lin_Functionality
 {
    public:
       module_Lin(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
@@ -84,6 +96,10 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
    if(E_OK == IsInitDone){
 #if(STD_ON == Lin_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -92,6 +108,10 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == Lin_DevErrorDetect)
          Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
          );
 #endif
       }
@@ -116,6 +136,10 @@ FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == Lin_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -132,6 +156,10 @@ FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == Lin_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -142,36 +170,25 @@ FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 #endif
 }
 
-class class_Lin_Unused{
-   public:
-      FUNC(void, LIN_CODE) CheckWakeup       (void);
-      FUNC(void, LIN_CODE) SendFrame         (void);
-      FUNC(void, LIN_CODE) GoToSleep         (void);
-      FUNC(void, LIN_CODE) GoToSleepInternal (void);
-      FUNC(void, LIN_CODE) Wakeup            (void);
-      FUNC(void, LIN_CODE) WakeupInternal    (void);
-      FUNC(void, LIN_CODE) GetStatus         (void);
-};
-
-FUNC(void, LIN_CODE) class_Lin_Unused::CheckWakeup(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::CheckWakeup(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Unused::SendFrame(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::SendFrame(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Unused::GoToSleep(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::GoToSleep(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Unused::GoToSleepInternal(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::GoToSleepInternal(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Unused::Wakeup(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::Wakeup(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Unused::WakeupInternal(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::WakeupInternal(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Unused::GetStatus(void){
+FUNC(void, LIN_CODE) class_Lin_Functionality::GetStatus(void){
 }
 
 /******************************************************************************/
