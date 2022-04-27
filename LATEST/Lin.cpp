@@ -31,17 +31,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class class_Lin_Functionality{
-   public:
-      FUNC(void, LIN_CODE) CheckWakeup       (void);
-      FUNC(void, LIN_CODE) SendFrame         (void);
-      FUNC(void, LIN_CODE) GoToSleep         (void);
-      FUNC(void, LIN_CODE) GoToSleepInternal (void);
-      FUNC(void, LIN_CODE) Wakeup            (void);
-      FUNC(void, LIN_CODE) WakeupInternal    (void);
-      FUNC(void, LIN_CODE) GetStatus         (void);
-};
-
 class module_Lin:
       public abstract_module
    ,  public class_Lin_Functionality
