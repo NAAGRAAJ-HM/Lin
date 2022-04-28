@@ -7,10 +7,28 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "CompilerCfg_Lin.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define LIN_COREFUNCTIONALITIES                                                \
+              FUNC(void, LIN_CODE) CheckWakeup       (void);                   \
+              FUNC(void, LIN_CODE) SendFrame         (void);                   \
+              FUNC(void, LIN_CODE) GoToSleep         (void);                   \
+              FUNC(void, LIN_CODE) GoToSleepInternal (void);                   \
+              FUNC(void, LIN_CODE) Wakeup            (void);                   \
+              FUNC(void, LIN_CODE) WakeupInternal    (void);                   \
+              FUNC(void, LIN_CODE) GetStatus         (void);                   \
+
+#define LIN_COREFUNCTIONALITIES_VIRTUAL                                        \
+      virtual FUNC(void, LIN_CODE) CheckWakeup       (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) SendFrame         (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) GoToSleep         (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) GoToSleepInternal (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) Wakeup            (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) WakeupInternal    (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) GetStatus         (void) = 0;               \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -21,13 +39,7 @@
 /******************************************************************************/
 class class_Lin_Functionality{
    public:
-      FUNC(void, LIN_CODE) CheckWakeup       (void);
-      FUNC(void, LIN_CODE) SendFrame         (void);
-      FUNC(void, LIN_CODE) GoToSleep         (void);
-      FUNC(void, LIN_CODE) GoToSleepInternal (void);
-      FUNC(void, LIN_CODE) Wakeup            (void);
-      FUNC(void, LIN_CODE) WakeupInternal    (void);
-      FUNC(void, LIN_CODE) GetStatus         (void);
+      LIN_COREFUNCTIONALITIES_VIRTUAL
 };
 
 /******************************************************************************/
