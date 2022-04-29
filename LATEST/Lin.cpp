@@ -7,10 +7,9 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "CfgLin.hpp"
 #include "Lin_core.hpp"
-#include "infLin_EcuM.hpp"
-#include "infLin_Dcm.hpp"
-#include "infLin_SchM.hpp"
+#include "infLin.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -44,6 +43,7 @@ class module_Lin:
       );
       FUNC(void, LIN_CODE) DeInitFunction (void);
       FUNC(void, LIN_CODE) MainFunction   (void);
+      LIN_CORE_FUNCTIONALITIES
 };
 
 extern VAR(module_Lin, LIN_VAR) Lin;
@@ -58,7 +58,6 @@ CONSTP2VAR(infSchMClient, LIN_VAR, LIN_CONST) gptrinfSchMClient_Lin = &Lin;
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-#include "CfgLin.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */

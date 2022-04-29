@@ -1,34 +1,19 @@
 #pragma once
 /******************************************************************************/
-/* File   : Lin_core.hpp                                                      */
+/* File   : infLin.hpp                                                        */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CompilerCfg_Lin.hpp"
+#include "infLin_EcuM.hpp"
+#include "infLin_Dcm.hpp"
+#include "infLin_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define LIN_CORE_FUNCTIONALITIES                                               \
-              FUNC(void, LIN_CODE) CheckWakeup       (void);                   \
-              FUNC(void, LIN_CODE) SendFrame         (void);                   \
-              FUNC(void, LIN_CODE) GoToSleep         (void);                   \
-              FUNC(void, LIN_CODE) GoToSleepInternal (void);                   \
-              FUNC(void, LIN_CODE) Wakeup            (void);                   \
-              FUNC(void, LIN_CODE) WakeupInternal    (void);                   \
-              FUNC(void, LIN_CODE) GetStatus         (void);                   \
-
-#define LIN_CORE_FUNCTIONALITIES_VIRTUAL                                       \
-      virtual FUNC(void, LIN_CODE) CheckWakeup       (void) = 0;               \
-      virtual FUNC(void, LIN_CODE) SendFrame         (void) = 0;               \
-      virtual FUNC(void, LIN_CODE) GoToSleep         (void) = 0;               \
-      virtual FUNC(void, LIN_CODE) GoToSleepInternal (void) = 0;               \
-      virtual FUNC(void, LIN_CODE) Wakeup            (void) = 0;               \
-      virtual FUNC(void, LIN_CODE) WakeupInternal    (void) = 0;               \
-      virtual FUNC(void, LIN_CODE) GetStatus         (void) = 0;               \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -37,10 +22,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class class_Lin_Functionality{
-   public:
-      LIN_CORE_FUNCTIONALITIES_VIRTUAL
-};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
