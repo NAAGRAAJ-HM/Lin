@@ -159,25 +159,25 @@ FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 #endif
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::CheckWakeup(void){
+FUNC(void, LIN_CODE) module_Lin::CheckWakeup(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::SendFrame(void){
+FUNC(void, LIN_CODE) module_Lin::SendFrame(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::GoToSleep(void){
+FUNC(void, LIN_CODE) module_Lin::GoToSleep(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::GoToSleepInternal(void){
+FUNC(void, LIN_CODE) module_Lin::GoToSleepInternal(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::Wakeup(void){
+FUNC(void, LIN_CODE) module_Lin::Wakeup(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::WakeupInternal(void){
+FUNC(void, LIN_CODE) module_Lin::WakeupInternal(void){
 }
 
-FUNC(void, LIN_CODE) class_Lin_Functionality::GetStatus(void){
+FUNC(void, LIN_CODE) module_Lin::GetStatus(void){
 }
 
 /******************************************************************************/
