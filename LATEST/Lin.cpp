@@ -113,7 +113,7 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  LIN_E_UNINIT
       );
 #endif
    }
@@ -133,7 +133,7 @@ FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  LIN_E_UNINIT
       );
 #endif
    }
@@ -152,7 +152,7 @@ FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  LIN_E_UNINIT
       );
 #endif
    }
