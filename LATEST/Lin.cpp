@@ -89,7 +89,10 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == Lin_InitCheck)
-   if(E_OK != IsInitDone){
+   if(
+         E_OK
+      != IsInitDone
+   ){
 #endif
       if(NULL_PTR != lptrCfgModule){
          if(STD_HIGH){
@@ -127,7 +130,10 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
 
 FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
 #if(STD_ON == Lin_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == Lin_InitCheck)
       IsInitDone = E_NOT_OK;
@@ -147,7 +153,10 @@ FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
 
 FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 #if(STD_ON == Lin_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == Lin_InitCheck)
    }
