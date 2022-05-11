@@ -9,7 +9,7 @@
 #include "Module.hpp"
 #include "CfgLin.hpp"
 #include "Lin_core.hpp"
-#include "infLin.hpp"
+#include "infLin_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -32,6 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_Lin:
+   INTERFACES_EXPORTED_LIN
       public abstract_module
    ,  public class_Lin_Functionality
 {
