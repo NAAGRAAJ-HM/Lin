@@ -32,7 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_Lin:
-   INTERFACES_EXPORTED_LIN
+      INTERFACES_EXPORTED_LIN
       public abstract_module
    ,  public class_Lin_Functionality
 {
