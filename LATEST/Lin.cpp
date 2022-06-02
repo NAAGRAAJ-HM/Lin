@@ -72,6 +72,10 @@ CONSTP2VAR(infSchMClient, LIN_VAR, LIN_CONST) gptrinfSchMClient_Lin = &Lin;
 /******************************************************************************/
 VAR(module_Lin, LIN_VAR) Lin(
    {
+#if(STD_ON == _ReSIM)
+// char strModuleName[6];
+#else
+#endif
          LIN_AR_RELEASE_VERSION_MAJOR
       ,  LIN_AR_RELEASE_VERSION_MINOR
       ,  0x00
