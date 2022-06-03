@@ -10,6 +10,7 @@
 #include "CfgLin.hpp"
 #include "Lin_core.hpp"
 #include "infLin_Exp.hpp"
+#include "infLin_Imp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
