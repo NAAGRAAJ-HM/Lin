@@ -130,7 +130,9 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
 #endif
 }
 
-FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
+FUNC(void, LIN_CODE) module_Lin::DeInitFunction(
+   void
+){
 #if(STD_ON == Lin_InitCheck)
    if(
          E_OK
@@ -153,7 +155,9 @@ FUNC(void, LIN_CODE) module_Lin::DeInitFunction(void){
 #endif
 }
 
-FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
+FUNC(void, LIN_CODE) module_Lin::MainFunction(
+   void
+){
 #if(STD_ON == Lin_InitCheck)
    if(
          E_OK
@@ -175,25 +179,39 @@ FUNC(void, LIN_CODE) module_Lin::MainFunction(void){
 #endif
 }
 
-FUNC(void, LIN_CODE) module_Lin::CheckWakeup(void){
+FUNC(void, LIN_CODE) module_Lin::CheckWakeup(
+   void
+){
 }
 
-FUNC(void, LIN_CODE) module_Lin::SendFrame(void){
+FUNC(void, LIN_CODE) module_Lin::SendFrame(
+   void
+){
 }
 
-FUNC(void, LIN_CODE) module_Lin::GoToSleep(void){
+FUNC(void, LIN_CODE) module_Lin::GoToSleep(
+   void
+){
 }
 
-FUNC(void, LIN_CODE) module_Lin::GoToSleepInternal(void){
+FUNC(void, LIN_CODE) module_Lin::GoToSleepInternal(
+   void
+){
 }
 
-FUNC(void, LIN_CODE) module_Lin::Wakeup(void){
+FUNC(void, LIN_CODE) module_Lin::Wakeup(
+   void
+){
 }
 
-FUNC(void, LIN_CODE) module_Lin::WakeupInternal(void){
+FUNC(void, LIN_CODE) module_Lin::WakeupInternal(
+   void
+){
 }
 
-FUNC(void, LIN_CODE) module_Lin::GetStatus(void){
+FUNC(void, LIN_CODE) module_Lin::GetStatus(
+   void
+){
 }
 
 /******************************************************************************/
