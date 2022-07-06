@@ -7,9 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
-#include "CfgLin.hpp"
-#include "Lin_core.hpp"
-#include "infLin_Exp.hpp"
+#include "Lin.hpp"
 #include "infLin_Imp.hpp"
 
 /******************************************************************************/
@@ -32,26 +30,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_Lin:
-      INTERFACES_EXPORTED_LIN
-      public abstract_module
-   ,  public class_Lin_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-
-   public:
-      FUNC(void, LIN_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, LIN_CODE) DeInitFunction (void);
-      FUNC(void, LIN_CODE) MainFunction   (void);
-      LIN_CORE_FUNCTIONALITIES
-};
-
-extern VAR(module_Lin, LIN_VAR) Lin;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
