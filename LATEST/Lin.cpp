@@ -48,7 +48,8 @@ VAR(module_Lin, LIN_VAR) Lin;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 FUNC(void, LIN_CODE) module_Lin::InitFunction(
-   CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
+      CONSTP2CONST(ConstModule_TypeAbstract, LIN_CONST,       LIN_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == Lin_InitCheck)
    if(
@@ -56,8 +57,12 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
       != IsInitDone
    ){
 #endif
-      if(NULL_PTR != lptrCfgModule){
-         lptrCfg = lptrCfgModule;
+      if(
+            (NULL_PTR != lptrConstModule)
+         && (NULL_PTR != lptrCfgModule)
+      ){
+         lptrConst = lptrConstModule;
+         lptrCfg   = lptrCfgModule;
       }
       else{
 #if(STD_ON == Lin_DevErrorDetect)

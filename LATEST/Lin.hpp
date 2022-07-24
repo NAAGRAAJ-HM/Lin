@@ -7,6 +7,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "ConstLin.hpp"
 #include "CfgLin.hpp"
 #include "Lin_core.hpp"
 #include "infLin_Exp.hpp"
@@ -31,13 +32,15 @@ class module_Lin:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+      const ConstLin_Type* lptrConst = (ConstLin_Type*)NULL_PTR;
 
    public:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, LIN_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
+            CONSTP2CONST(ConstModule_TypeAbstract, LIN_CONST,       LIN_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
       );
       FUNC(void, LIN_CODE) DeInitFunction (void);
       FUNC(void, LIN_CODE) MainFunction   (void);
