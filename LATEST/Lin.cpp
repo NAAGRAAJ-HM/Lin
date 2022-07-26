@@ -61,7 +61,7 @@ FUNC(void, LIN_CODE) module_Lin::InitFunction(
             (NULL_PTR != lptrConstModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = lptrConstModule;
+         lptrConst = (const ConstLin_Type*)lptrConstModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
