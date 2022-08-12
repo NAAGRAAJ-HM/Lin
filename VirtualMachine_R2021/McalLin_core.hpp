@@ -1,20 +1,34 @@
 #pragma once
 /******************************************************************************/
-/* File   : McalLin.hpp                                                           */
+/* File   : McalLin_core.hpp                                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstMcalLin.hpp"
-#include "CfgMcalLin.hpp"
-#include "McalLin_core.hpp"
-#include "infMcalLin_Exp.hpp"
+#include "CompilerCfg_McalLin.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define LIN_CORE_FUNCTIONALITIES                                               \
+              FUNC(void, LIN_CODE) CheckWakeup       (void);                   \
+              FUNC(void, LIN_CODE) SendMcalFrame         (void);                   \
+              FUNC(void, LIN_CODE) GoToSleep         (void);                   \
+              FUNC(void, LIN_CODE) GoToSleepInternal (void);                   \
+              FUNC(void, LIN_CODE) Wakeup            (void);                   \
+              FUNC(void, LIN_CODE) WakeupInternal    (void);                   \
+              FUNC(void, LIN_CODE) GetStatus         (void);                   \
+
+#define LIN_CORE_FUNCTIONALITIES_VIRTUAL                                       \
+      virtual FUNC(void, LIN_CODE) CheckWakeup       (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) SendMcalFrame         (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) GoToSleep         (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) GoToSleepInternal (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) Wakeup            (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) WakeupInternal    (void) = 0;               \
+      virtual FUNC(void, LIN_CODE) GetStatus         (void) = 0;               \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -23,28 +37,9 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_McalLin:
-      INTERFACES_EXMCALPORTED_MCALLIN
-      public abstract_module
-   ,  public class_McalLin_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-      const ConstMcalLin_Type* lptrConst = (ConstMcalLin_Type*)NULL_PTR;
-
+class class_McalLin_Functionality{
    public:
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
-      FUNC(void, MCALLIN_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, MCALLIN_CONST,       MCALLIN_APPL_CONST) lptrConstModule
-         ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALLIN_CONFIG_DATA, MCALLIN_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, MCALLIN_CODE) DeInitFunction (void);
-      FUNC(void, MCALLIN_CODE) MainFunction   (void);
-      MCALLIN_CORE_FUNCTIONALITIES
+      LIN_CORE_FUNCTIONALITIES_VIRTUAL
 };
 
 /******************************************************************************/
@@ -58,7 +53,10 @@ class module_McalLin:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_McalLin, MCALLIN_VAR) McalLin;
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 
 /******************************************************************************/
 /* EOF                                                                        */

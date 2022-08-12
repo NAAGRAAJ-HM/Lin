@@ -1,16 +1,13 @@
 #pragma once
 /******************************************************************************/
-/* File   : McalLin.hpp                                                           */
+/* File   : infMcalLin_ServiceDet.hpp                                                    */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstMcalLin.hpp"
-#include "CfgMcalLin.hpp"
-#include "McalLin_core.hpp"
-#include "infMcalLin_Exp.hpp"
+#include "CompilerCfg_McalLin.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -23,29 +20,9 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_McalLin:
-      INTERFACES_EXPORTED_MCALLIN
-      public abstract_module
-   ,  public class_McalLin_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-      const ConstMcalLin_Type* lptrConst = (ConstMcalLin_Type*)NULL_PTR;
-
-   public:
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
-      FUNC(void, MCALLIN_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, MCALLIN_CONST,       MCALLIN_APPL_CONST) lptrConstModule
-         ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALLIN_CONFIG_DATA, MCALLIN_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, MCALLIN_CODE) DeInitFunction (void);
-      FUNC(void, MCALLIN_CODE) MainFunction   (void);
-      MCALLIN_CORE_FUNCTIONALITIES
-};
+typedef enum{
+      LIN_E_UNINIT
+}McalLin_TypeServiceDetErrorCode;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -58,7 +35,10 @@ class module_McalLin:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_McalLin, MCALLIN_VAR) McalLin;
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 
 /******************************************************************************/
 /* EOF                                                                        */

@@ -1,20 +1,29 @@
 #pragma once
 /******************************************************************************/
-/* File   : McalLin.hpp                                                           */
+/* File   : Template.hpp                                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstMcalLin.hpp"
-#include "CfgMcalLin.hpp"
-#include "McalLin_core.hpp"
-#include "infMcalLin_Exp.hpp"
+//#include "tle987x.hpp"
+//#include "types.hpp"
+//#include "sfr_access.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define LIN_MODE_SLEEP        (0u)
+#define LIN_MODE_RCV_ONLY     (1u)
+#define LIN_MODE_NORMAL       (3u)
+#define LIN_GET_MODE_SLEEP    (1u)
+#define LIN_GET_MODE_RCV_ONLY (5u)
+#define LIN_GET_MODE_NORMAL   (7u)
+#define LIN_SLOPE_NORMAL      (0u)
+#define LIN_SLOPE_FAST        (1u)
+#define LIN_SLOPE_LOW         (2u)
+#define LIN_SLOPE_FLASH       (3u)
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -23,29 +32,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class module_McalLin:
-      INTERFACES_EXPORTED_MCALLIN
-      public abstract_module
-   ,  public class_McalLin_Functionality
-{
-   private:
-/******************************************************************************/
-/* OBJECTS                                                                    */
-/******************************************************************************/
-      const ConstMcalLin_Type* lptrConst = (ConstMcalLin_Type*)NULL_PTR;
-
-   public:
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
-      FUNC(void, MCALLIN_CODE) InitFunction(
-            CONSTP2CONST(ConstModule_TypeAbstract, MCALLIN_CONST,       MCALLIN_APPL_CONST) lptrConstModule
-         ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALLIN_CONFIG_DATA, MCALLIN_APPL_CONST) lptrCfgModule
-      );
-      FUNC(void, MCALLIN_CODE) DeInitFunction (void);
-      FUNC(void, MCALLIN_CODE) MainFunction   (void);
-      MCALLIN_CORE_FUNCTIONALITIES
-};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -58,7 +44,34 @@ class module_McalLin:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern VAR(module_McalLin, MCALLIN_VAR) McalLin;
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+extern void   LIN_Init                (void);
+extern uint8  LIN_End_Of_Sync_Sts     (void);
+extern uint8  LIN_Err_In_Sync_Sts     (void);
+extern uint8  LIN_Break_Sts           (void);
+extern void   LIN_Break_Detect_En     (void);
+extern void   LIN_Break_Detect_Dis    (void);
+extern void   LIN_BaudRate_Range_Sel  (uint8 a);
+extern void   LIN_Over_Curr_Int_Clr   (void);
+extern void   LIN_Over_Temp_Int_Clr   (void);
+extern void   LIN_Time_Out_Int_Clr    (void);
+extern void   LIN_End_Of_Sync_Int_Clr (void);
+extern void   LIN_Err_In_Sync_Int_Clr (void);
+extern void   LIN_Break_Int_Clr       (void);
+extern void   LIN_Over_Curr_Int_En    (void);
+extern void   LIN_Over_Curr_Int_Dis   (void);
+extern void   LIN_Over_Temp_Int_En    (void);
+extern void   LIN_Over_Temp_Int_Dis   (void);
+extern void   LIN_Time_Out_Int_En     (void);
+extern void   LIN_Time_Out_Int_Dis    (void);
+extern void   LIN_Sync_Int_En         (void);
+extern void   LIN_Sync_Int_Dis        (void);
+extern void   LIN_Set_Mode            (uint8 Mode);
+extern uint32 LIN_Get_Mode            (void);
+extern void   LIN_Set_Slope           (uint8 SlopeMode);
 
 /******************************************************************************/
 /* EOF                                                                        */

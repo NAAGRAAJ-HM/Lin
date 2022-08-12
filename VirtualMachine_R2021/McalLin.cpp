@@ -13,18 +13,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define MCALLIN_AR_RELEASE_VERSION_MAJOR                                           4
-#define MCALLIN_AR_RELEASE_VERSION_MINOR                                           3
+#define LIN_AR_RELEASE_VERSION_MAJOR                                           4
+#define LIN_AR_RELEASE_VERSION_MINOR                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(MCALLIN_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible MCALLIN_AR_RELEASE_VERSION_MAJOR!"
+#if(LIN_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible LIN_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(MCALLIN_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible MCALLIN_AR_RELEASE_VERSION_MINOR!"
+#if(LIN_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible LIN_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -42,14 +42,14 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_McalLin, MCALLIN_VAR) McalLin;
+VAR(module_McalLin, LIN_VAR) McalLin;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, MCALLIN_CODE) module_McalLin::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, MCALLIN_CONST,       MCALLIN_APPL_CONST) lptrConstModule
-   ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALLIN_CONFIG_DATA, MCALLIN_APPL_CONST) lptrCfgModule
+FUNC(void, LIN_CODE) module_McalLin::InitFunction(
+      CONSTP2CONST(ConstModule_TypeAbstract, LIN_CONST,       LIN_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   LIN_CONFIG_DATA, LIN_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == McalLin_InitCheck)
    if(
@@ -83,14 +83,14 @@ FUNC(void, MCALLIN_CODE) module_McalLin::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  MCALLIN_E_UNINIT
+         ,  LIN_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::DeInitFunction(
+FUNC(void, LIN_CODE) module_McalLin::DeInitFunction(
    void
 ){
 #if(STD_ON == McalLin_InitCheck)
@@ -108,14 +108,14 @@ FUNC(void, MCALLIN_CODE) module_McalLin::DeInitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  MCALLIN_E_UNINIT
+         ,  LIN_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::MainFunction(
+FUNC(void, LIN_CODE) module_McalLin::MainFunction(
    void
 ){
 #if(STD_ON == McalLin_InitCheck)
@@ -132,44 +132,44 @@ FUNC(void, MCALLIN_CODE) module_McalLin::MainFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  MCALLIN_E_UNINIT
+         ,  LIN_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::CheckWakeup(
+FUNC(void, LIN_CODE) module_McalLin::CheckWakeup(
    void
 ){
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::SendMcalFrame(
+FUNC(void, LIN_CODE) module_McalLin::SendMcalFrame(
    void
 ){
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::GoToSleep(
+FUNC(void, LIN_CODE) module_McalLin::GoToSleep(
    void
 ){
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::GoToSleepInternal(
+FUNC(void, LIN_CODE) module_McalLin::GoToSleepInternal(
    void
 ){
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::Wakeup(
+FUNC(void, LIN_CODE) module_McalLin::Wakeup(
    void
 ){
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::WakeupInternal(
+FUNC(void, LIN_CODE) module_McalLin::WakeupInternal(
    void
 ){
 }
 
-FUNC(void, MCALLIN_CODE) module_McalLin::GetStatus(
+FUNC(void, LIN_CODE) module_McalLin::GetStatus(
    void
 ){
 }
