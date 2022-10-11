@@ -53,15 +53,15 @@ void LIN_Init(void){
 }
 /*
 uint8 LIN_End_Of_Sync_Sts(void){
-  return( u1_Field_Rd8(&SCU.LINST.reg, (uint8)SCU_LINST_EOFSYN_Pos, (uint8)SCU_LINST_EOFSYN_Msk) );
+   return( u1_Field_Rd8(&SCU.LINST.reg, (uint8)SCU_LINST_EOFSYN_Pos, (uint8)SCU_LINST_EOFSYN_Msk) );
 }
 
 uint8 LIN_Err_In_Sync_Sts(void){
-  return( u1_Field_Rd8(&SCU.LINST.reg, (uint8)SCU_LINST_ERRSYN_Pos, (uint8)SCU_LINST_ERRSYN_Msk) );
+   return( u1_Field_Rd8(&SCU.LINST.reg, (uint8)SCU_LINST_ERRSYN_Pos, (uint8)SCU_LINST_ERRSYN_Msk) );
 }
 
 uint8 LIN_Break_Sts(void){
-  return( u1_Field_Rd8(&SCU.LINST.reg, (uint8)SCU_LINST_BRK_Pos, (uint8)SCU_LINST_BRK_Msk) );
+   return( u1_Field_Rd8(&SCU.LINST.reg, (uint8)SCU_LINST_BRK_Pos, (uint8)SCU_LINST_BRK_Msk) );
 }
 
 void LIN_Break_Detect_En(void){
@@ -137,7 +137,7 @@ void LIN_Set_Mode(uint8 Mode){
 }
 
 uint32 LIN_Get_Mode(void){
-  return u32_Field_Rd32(&LIN.CTRL_STS.reg, LIN_CTRL_STS_MODE_FB_Pos, LIN_CTRL_STS_MODE_FB_Msk);
+   return u32_Field_Rd32(&LIN.CTRL_STS.reg, LIN_CTRL_STS_MODE_FB_Pos, LIN_CTRL_STS_MODE_FB_Msk);
 }
 
 void LIN_Set_Slope(uint8 SlopeMode){
