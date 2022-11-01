@@ -47,6 +47,8 @@ VAR(module_McalLin, MCALLIN_VAR) McalLin;
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
+extern void LIN_Init(void); //TBD: use interface headers as per architecture
+
 FUNC(void, MCALLIN_CODE) module_McalLin::InitFunction(
       CONSTP2CONST(ConstModule_TypeAbstract, MCALLIN_CONST,       MCALLIN_APPL_CONST) lptrConstModule
    ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALLIN_CONFIG_DATA, MCALLIN_APPL_CONST) lptrCfgModule
@@ -74,6 +76,7 @@ FUNC(void, MCALLIN_CODE) module_McalLin::InitFunction(
          );
 #endif
       }
+      LIN_Init();
 #if(STD_ON == McalLin_InitCheck)
       IsInitDone = E_OK;
    }
