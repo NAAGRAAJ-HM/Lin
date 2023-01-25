@@ -1,13 +1,13 @@
 #pragma once
 /******************************************************************************/
-/* File   : McalLin.hpp                                                           */
+/* File   : McalLin.hpp                                                       */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "ConstMcalLin.hpp"
+#include "infMcalLin_ServiceNvM_Types.hpp"
 #include "CfgMcalLin.hpp"
 #include "McalLin_core.hpp"
 #include "infMcalLin_Exp.hpp"
